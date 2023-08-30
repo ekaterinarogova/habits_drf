@@ -3,4 +3,4 @@ from django.db import models
 
 
 class User(AbstractUser):
-    telegram_id = models.CharField(max_length=150, verbose_name='имя в телеграм')
+    telegram_id = models.IntegerField(verbose_name='id в телеграм')

@@ -1,10 +1,13 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework import serializers
 
 from users.models import User
+from users.validators import check_telegram_id
 
 
-class UserSerializer(ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     """ Сериалайзер для класса :model:`users.User`"""
+    telegram_id = serializers.CharField(validators=[check_telegram_id])
+
     class Meta:
         model = User
         fields = ('id', 'username', 'email', 'first_name', 'last_name', 'telegram_id',)
