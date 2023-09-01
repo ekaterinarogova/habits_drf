@@ -9,4 +9,4 @@ class UserCreateAPIView(generics.CreateAPIView):
     """ Создает объект :model:`users.User` """
 
     serializer_class = UserSerializer
-    queryset = User.objects.all()
+

@@ -42,12 +42,12 @@ class PublicHabitListAPIView(generics.ListAPIView):
 class HabitUpdateAPIView(generics.UpdateAPIView):
     """Редактирует объект :model:`habits.Habit`"""
     serializer_class = HabitSerializer
-    queryset = Habit.objects.filter(is_public=True)
+    queryset = Habit.objects.all()
     permission_classes = [IsAuthenticated, IsOwner]
 
 
 class HabitDeleteAPIView(generics.DestroyAPIView):
     """Удаляет объект :model:`habits.Habit`"""
     serializer_class = HabitSerializer
-    queryset = Habit.objects.filter(is_public=True)
+    queryset = Habit.objects.all()
     permission_classes = [IsAuthenticated, IsOwner]
